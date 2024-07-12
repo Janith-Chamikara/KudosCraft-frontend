@@ -47,7 +47,7 @@ export const AuroraHero = ({
       }}
       className="w-[100%] relative grid min-h-screen overflow-hidden bg-gray-950 px-4  text-[var(--text-1)]"
     >
-      <Header/>
+      <Header />
       <div className="relative z-10 flex flex-col items-center">
         <motion.h1
           style={{

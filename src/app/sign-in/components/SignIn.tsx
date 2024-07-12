@@ -42,7 +42,7 @@ export default function SignIn() {
           </Button>
         </div>
         <div className="text-center text-sm text-muted-foreground">
-          Don't have an account?{' '}
+          Do not have an account?
           <Link
             href="#"
             className="font-medium underline underline-offset-4"

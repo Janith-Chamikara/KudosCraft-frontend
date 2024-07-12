@@ -1,10 +1,23 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Input } from "@/components/ui/input"
-import {Icons} from '@/components/ui/icons'
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Input } from '@/components/ui/input';
+import { Icons } from '@/components/ui/icons';
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+} from '@/components/ui/card';
 
 export default function Dashboard() {
   return (
@@ -15,13 +28,25 @@ export default function Dashboard() {
           <span className="font-bold">KudosCraft</span>
         </Link>
         <nav className="hidden gap-4 sm:flex">
-          <Link href="#" className="text-sm font-medium transition-colors hover:text-primary" prefetch={false}>
+          <Link
+            href="#"
+            className="text-sm font-medium transition-colors hover:text-primary"
+            prefetch={false}
+          >
             Testimonials
           </Link>
-          <Link href="#" className="text-sm font-medium transition-colors hover:text-primary" prefetch={false}>
+          <Link
+            href="#"
+            className="text-sm font-medium transition-colors hover:text-primary"
+            prefetch={false}
+          >
             Customers
           </Link>
-          <Link href="#" className="text-sm font-medium transition-colors hover:text-primary" prefetch={false}>
+          <Link
+            href="#"
+            className="text-sm font-medium transition-colors hover:text-primary"
+            prefetch={false}
+          >
             Settings
           </Link>
         </nav>
@@ -62,7 +87,9 @@ export default function Dashboard() {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem checked>5 stars</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem checked>
+                  5 stars
+                </DropdownMenuCheckboxItem>
                 <DropdownMenuCheckboxItem>4 stars</DropdownMenuCheckboxItem>
                 <DropdownMenuCheckboxItem>3 stars</DropdownMenuCheckboxItem>
                 <DropdownMenuCheckboxItem>2 stars</DropdownMenuCheckboxItem>
@@ -99,8 +126,10 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                "The KudosCraft platform has been a game-changer for our\n business. The ease of collecting and managing
-                testimonials\n has helped us build trust with our customers and showcase\n our expertise."
+                The KudosCraft platform has been a game-changer for our\n
+                business. The ease of collecting and managing testimonials\n has
+                helped us build trust with our customers and showcase\n our
+                expertise.
               </p>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
@@ -131,8 +160,9 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                "KudosCraft has made it so easy for us to collect and\n showcase customer testimonials. The platform is
-                intuitive and\n the customer support has been fantastic."
+                KudosCraft has made it so easy for us to collect and\n showcase
+                customer testimonials. The platform is intuitive and\n the
+                customer support has been fantastic.
               </p>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
@@ -163,8 +193,9 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                "KudosCraft has been a valuable tool for our business. The\n ability to easily collect and display
-                testimonials has\n helped us build trust with our customers and showcase our\n expertise."
+                KudosCraft has been a valuable tool for our business. The\n
+                ability to easily collect and display testimonials has\n helped
+                us build trust with our customers and showcase our\n expertise.
               </p>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
@@ -195,8 +226,9 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                "KudosCraft has been a game-changer for our business. The\n platform is easy to use and has helped us
-                collect and\n showcase high-quality testimonials from our customers."
+                KudosCraft has been a game-changer for our business. The\n
+                platform is easy to use and has helped us collect and\n showcase
+                high-quality testimonials from our customers.
               </p>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
@@ -211,5 +243,5 @@ export default function Dashboard() {
         </div>
       </main>
     </div>
-  )
+  );
 }

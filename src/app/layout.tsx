@@ -15,8 +15,6 @@ const fontBody = Inter({
   variable: '--font-body',
 });
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: 'KudosCraft',
   description:

@@ -9,10 +9,22 @@ type StarsProps = {
   speed: number;
 };
 
-const BackgroundStars = ({ radius, count, factor, fade, speed }: StarsProps) => {
+const BackgroundStars = ({
+  radius,
+  count,
+  factor,
+  fade,
+  speed,
+}: StarsProps) => {
   return (
     <Canvas>
-      <Stars radius={radius} count={count} factor={factor} fade={fade} speed={speed} />
+      <Stars
+        radius={radius}
+        count={count}
+        factor={factor}
+        fade={fade}
+        speed={speed}
+      />
     </Canvas>
   );
 };

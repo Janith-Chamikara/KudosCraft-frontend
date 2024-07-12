@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import React from 'react';
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -259,6 +259,4 @@ export const Icons = {
       <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
     </svg>
   ),
-  downArrow: (props: IconProps) => ChevronDown,
-  rightArrow: (props: IconProps) => ChevronRight,
 };
