@@ -1,6 +1,6 @@
 KUDOS-CRAFT - Introducing KudosCraft, my open-source web app designed to revolutionize how you handle testimonials. Streamline your testimonial management with KudosCraft. Collect, organize, and showcase customer feedback effortlessly. Embed testimonials in multiple styles on your website and marketing materials. Say goodbye to hardcoding and hello to a seamless, centralized testimonial hub.
 
-[View Figma design from here](https://www.figma.com/proto/wsrxykI3RLA0KBZIFd0KgM/Untitled?node-id=1-2&t=b9M76FMYgP1Z3UQI-1)
+[View Figma design from here](https://www.figma.com/proto/wsrxykI3RLA0KBZIFd0KgM/Untitled?t=A62ndQWHPeQjGnWI-1)
 
 ## Getting Started
 
