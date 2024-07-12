@@ -31,6 +31,7 @@
     --text-1: #818ed6;
     --text-2: #c1c6de;
     --text-3: #ffffff;
+    --boxshadow: '5px 5px 19.8px 0px #3652C9';
   }
 
   .dark {
@@ -71,12 +72,11 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground font-body;
   }
 
-  
   h1,
   h2,
   h3,

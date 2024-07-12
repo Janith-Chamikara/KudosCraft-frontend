@@ -41,11 +41,11 @@ export const AuroraHero = ({
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   return (
-    <motion.section
+    <motion.div
       style={{
         backgroundImage,
       }}
-      className="w-[100%] relative grid min-h-screen overflow-hidden bg-gray-950 px-4  text-[var(--text-1)]"
+      className="w-[100%] relative grid min-h-screen overflow-hidden bg-gray-950 px-4 "
     >
       <Header />
       <div className="relative z-10 flex flex-col items-center">
@@ -54,7 +54,7 @@ export const AuroraHero = ({
             border,
             boxShadow,
           }}
-          className="max-w-3xl bg-gradient-to-br from-[var(--text-1)] to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl px-4 md:px-10 py-8 md:leading-tight rounded-xl"
+          className="max-w-3xl bg-gradient-to-br from-text1 to-gray-400 bg-clip-text text-center text-3xl font-extrabold leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl px-4 md:px-10 py-8 md:leading-tight rounded-xl"
         >
           {heading}
         </motion.h1>
@@ -85,6 +85,6 @@ export const AuroraHero = ({
           <Stars radius={50} count={1500} factor={2} fade speed={2} />
         </Canvas>
       </div>
-    </motion.section>
+    </motion.div>
   );
 };
