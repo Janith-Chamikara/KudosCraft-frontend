@@ -3,7 +3,7 @@ import UserAvatar from './UserAvatar';
 
 const Header = () => {
   return (
-    <header className="max-h-[80px] w-[80%] mx-auto flex flex-row justify-between items-center">
+    <header className="w-[80%] max-h-[80px] mx-auto flex flex-row justify-between items-center">
       <Navigation />
       <UserAvatar fallback="JN" />
     </header>
