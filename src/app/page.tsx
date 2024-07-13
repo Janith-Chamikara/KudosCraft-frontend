@@ -1,7 +1,9 @@
 import AnimationContainer from './components/AnimationContainer';
-import { AccordianItems, animationDataPaths } from './components/Assests';
+import { AccordianItems, howToDoItInstructions } from './components/Assests';
 import { AuroraHero } from './components/AuroraHero';
 import CustomAccordion from './components/CustomAccordian';
+import StepInstruction from './components/StepInstruction';
+import InfiniteScroll from './components/infiniteScroll/InfiniteScroll';
 
 export default function Home() {
   return (
@@ -39,18 +41,46 @@ export default function Home() {
         {/*How it works section*/}
         <section
           id="#howItWorks"
-          className="w-[100%] flex gap-[50px] flex-col min-h-screen "
+          className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
         >
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
             How it works
           </h1>
-          {animationDataPaths.map((path) => {
-            return (
-              <div key={path} className="w-[500px] h-[500px]">
-                <AnimationContainer />
+          <div className="flex flex-col gap-[50px]">
+            {howToDoItInstructions.map((item, index) => (
+              <div
+                className={
+                  index % 2 === 0
+                    ? 'w-[90%]  p-[24px] mx-auto flex shadow-mainShadow rounded-[10px] flex-col md:flex-row justify-between items-center'
+                    : 'w-[90%]  p-[24px] mx-auto flex shadow-mainShadow rounded-[10px] flex-col md:flex-row-reverse justify-between items-center'
+                }
+                key={index}
+              >
+                <div className="flex-1">
+                  <StepInstruction
+                    stepNo={item.stepNo}
+                    title={item.title}
+                    description={item.description}
+                  />
+                </div>
+                <div className="flex-1">
+                  <AnimationContainer src={item.animationLink} />
+                </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
+        </section>
+        {/*Testimonials*/}
+        <section
+          id="#testimonials"
+          className="mt-[100px] w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
+        >
+          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
+            What people say about us ?
+          </h1>
+          <div>
+            <InfiniteScroll />
+          </div>
         </section>
       </div>
     </main>

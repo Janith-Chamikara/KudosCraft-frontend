@@ -42,68 +42,71 @@ const Navigation = () => {
             </Link>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent">
-              Getting started
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-[var(--bgColor)] text-[var(--text-1)]">
-              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#020617cc]/50 to-[#050e35] p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
-                    >
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        KudosCraft
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Collect client reviews, seamlessly manage testimonials,
-                        and easily embed them in various styles on your site.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem href="/docs/installation" title="How it works">
-                  Discover how KudosCraft simplifies testimonial management
-                </ListItem>
-                <ListItem
-                  href="/docs/primitives/typography"
-                  title="Plans & Pricing"
-                >
-                  Choose the subscription plan that best fits your requirements
-                  and budget
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent opacity-0.5">
-              About
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-[var(--bgColor)] text-[var(--text-1)]">
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
-                  >
-                    {component.description}
+          <div className="hidden md:display:block">
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent">
+                Getting started
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="bg-[var(--bgColor)] text-[var(--text-1)]">
+                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#020617cc]/50 to-[#050e35] p-6 no-underline outline-none focus:shadow-md"
+                        href="/"
+                      >
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          KudosCraft
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                          Collect client reviews, seamlessly manage
+                          testimonials, and easily embed them in various styles
+                          on your site.
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  <ListItem href="/docs/installation" title="How it works">
+                    Discover how KudosCraft simplifies testimonial management
                   </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
-              <NavigationMenuLink
-                className={`${navigationMenuTriggerStyle()} bg-transparent`}
-              >
-                FAQ
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
+                  <ListItem
+                    href="/docs/primitives/typography"
+                    title="Plans & Pricing"
+                  >
+                    Choose the subscription plan that best fits your
+                    requirements and budget
+                  </ListItem>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent opacity-0.5">
+                About
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="bg-[var(--bgColor)] text-[var(--text-1)]">
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {components.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/docs" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={`${navigationMenuTriggerStyle()} bg-transparent`}
+                >
+                  FAQ
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </div>
         </NavigationMenuList>
       </NavigationMenu>
     </nav>
