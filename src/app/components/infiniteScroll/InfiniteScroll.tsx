@@ -1,27 +1,58 @@
-'use client';
+import Testimonial from '../Testimonial';
 import './infiniteScroll.css';
-
-const arr = Array(16).fill(0);
+import { testimonials } from './testimonials';
 export default function InfiniteScroll() {
+  const midIndex = Math.floor(testimonials.length / 2);
   return (
     <>
       <div className="wrapper">
-        {arr.slice(0, arr.length / 2).map((item, index) => {
+        {testimonials.slice(0, midIndex).map((testimonial, index) => {
+          const delay = (60 / midIndex) * (midIndex - (index + 1)) * -1;
           return (
             <div
               key={index}
               className={`itemLeft`}
               style={{
-                animationDelay: `calc(30s / 8 * (8 - (${index}+1)) * -1)`,
+                animationDelay: `${delay}s`,
               }}
-            ></div>
+            >
+              <Testimonial
+                name={testimonial.name}
+                profileImg={testimonial.profileImg}
+                ratings={testimonial.ratings}
+                title={testimonial.title}
+                review={testimonial.review}
+              />
+            </div>
           );
         })}
       </div>
       <div className="wrapper">
-        {arr.slice(arr.length / 2, arr.length).map((item, index) => (
-          <div key={index} className={`itemRight item${index + 1}`}></div>
-        ))}
+        {testimonials
+          .slice(midIndex, testimonials.length)
+          .map((testimonial, index) => {
+            const delay =
+              (60 / (testimonials.length - midIndex)) *
+              (midIndex - (index + 1)) *
+              -1;
+            return (
+              <div
+                key={index}
+                className={`itemRight`}
+                style={{
+                  animationDelay: `${delay}s`,
+                }}
+              >
+                <Testimonial
+                  name={testimonial.name}
+                  profileImg={testimonial.profileImg}
+                  ratings={testimonial.ratings}
+                  title={testimonial.title}
+                  review={testimonial.review}
+                />
+              </div>
+            );
+          })}
       </div>
     </>
   );

@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%; /* Your original dark blue */
+    --background: #020617; /* Your original dark blue */
     --foreground: 210 40% 98%; /* Very light blue for contrast */
     --card: 222.2 84% 6.9%; /* Slightly lighter background for cards */
     --card-foreground: 210 40% 96%; /* Slightly less bright text on cards */
@@ -35,7 +35,7 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: #020617;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
