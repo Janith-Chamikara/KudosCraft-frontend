@@ -54,7 +54,7 @@ export const AuroraHero = ({
             border,
             boxShadow,
           }}
-          className="max-w-3xl bg-gradient-to-br from-text1 to-gray-400 bg-clip-text text-center text-3xl font-extrabold leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl px-4 md:px-10 py-8 md:leading-tight rounded-xl"
+          className="max-w-3xl text-text1 text-center text-3xl font-extrabold leading-tight sm:text-5xl sm:leading-tight md:text-7xl px-4 md:px-10 py-8 md:leading-tight rounded-xl"
         >
           {heading}
         </motion.h1>
@@ -72,7 +72,7 @@ export const AuroraHero = ({
           whileTap={{
             scale: 0.985,
           }}
-          className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 transition-colors hover:bg-gray-950/50"
+          className="group relative mb-[20px] flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 transition-colors hover:bg-gray-950/50"
         >
           <Button className="bg-transparent text-[var(--text-3)] hover:bg-transparent">
             {buttonText}
