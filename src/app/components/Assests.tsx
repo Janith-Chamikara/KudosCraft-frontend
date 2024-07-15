@@ -1,3 +1,5 @@
+import { MainNavItem, SidebarNavItem } from '../types/navType';
+
 type AccordianItemType = {
   title: string;
   details: string;
@@ -89,3 +91,58 @@ export const FAQs: AccordianItemType[] = [
       "With KudosCraft, there's no limit to the number of testimonials you can manage. Whether you have a few or a few hundred, our platform is designed to handle all your feedback seamlessly, so you can focus on what matters most your clients.",
   },
 ];
+
+type mobileNavItem = {
+  mainNav?: MainNavItem[];
+  sidebarNav: SidebarNavItem[];
+};
+
+export const mobileNavItems: mobileNavItem = {
+  sidebarNav: [
+    {
+      title: 'Getting Started',
+      items: [
+        {
+          title: 'KudosCraft',
+          href: '#whatIsKudosCraft',
+          items: [],
+        },
+        {
+          title: 'How it works',
+          href: '#howItWorks',
+          items: [],
+        },
+        {
+          title: 'Plans & Pricing',
+          href: '#pricing',
+          items: [],
+        },
+      ],
+    },
+    {
+      title: 'About',
+      items: [
+        {
+          title: 'Client feedbacks',
+          href: '#testimonials',
+          items: [],
+        },
+        {
+          title: 'Contact Us',
+          href: '/docs/components/alert',
+          items: [],
+        },
+        {
+          title: 'About the creator',
+          href: '#footer',
+          items: [],
+        },
+      ],
+    },
+    {
+      title: 'FAQs',
+      href: '#FAQs',
+      items: [],
+    },
+  ],
+};

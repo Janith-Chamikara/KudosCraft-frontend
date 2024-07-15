@@ -16,7 +16,7 @@ export default function Home() {
     <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
       <main className="w-[100%] mx-auto flex min-h-screen flex-col gap-[50px] items-center justify-between bg-bgColor text-text1">
         {/*Hero Section*/}
-        <section id="#hero" className="w-[100%]">
+        <section id="hero" className="w-[100%]">
           <AuroraHero
             heading="Capture and Share Your Success Stories"
             content="Collect client reviews, seamlessly manage testimonials, and easily
@@ -28,7 +28,7 @@ export default function Home() {
         <div className="flex flex-col max-w-[1120px] gap-[50px]">
           {/*What KudosCraft offers*/}
           <section
-            id="#whatIsKudosCraft"
+            id="whatIsKudosCraft"
             className="w-[100%] flex justify-center gap-[50px] flex-col min-h-screen "
           >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
@@ -47,7 +47,7 @@ export default function Home() {
           </section>
           {/*How it works section*/}
           <section
-            id="#howItWorks"
+            id="howItWorks"
             className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
           >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
@@ -79,7 +79,7 @@ export default function Home() {
           </section>
           {/*Testimonials*/}
           <section
-            id="#testimonials"
+            id="testimonials"
             className="mt-[100px] w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
           >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
@@ -91,7 +91,7 @@ export default function Home() {
           </section>
           {/*Pricing*/}
           <section
-            id="#pricing"
+            id="pricing"
             className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
           >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
@@ -103,7 +103,7 @@ export default function Home() {
           </section>
           {/*FAQ*/}
           <section
-            id="#FAQ"
+            id="FAQs"
             className="w-[100%] flex justify-center gap-[50px] flex-col min-h-screen "
           >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center text-text1">
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </main>
       {/*Footer*/}
-      <section className="bg-bgColor">
+      <section id="footer" className="bg-bgColor">
         <Footer />
       </section>
     </div>
