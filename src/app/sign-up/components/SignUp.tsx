@@ -8,7 +8,7 @@ export default function SignUp() {
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-md flex-col items-center justify-center space-y-6 rounded-2xl bg-card p-8 shadow-xl sm:p-10">
-        <div className="grid w-full grid-cols-2 gap-4 text-[var(--text-1)]">
+        <div className="grid w-full grid-cols-2 gap-4 ">
           <Button variant="outline" className="flex-1">
             <Icons.GithubIcon className="mr-2 h-4 w-4" />
             GitHub
@@ -28,7 +28,7 @@ export default function SignUp() {
             </span>
           </div>
         </div>
-        <div className="grid w-full gap-4 text-[var(--text-2)]">
+        <div className="grid w-full gap-4 ">
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="firstName">First Name</Label>
