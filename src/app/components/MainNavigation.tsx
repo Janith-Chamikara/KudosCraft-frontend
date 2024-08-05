@@ -33,10 +33,10 @@ const components: { title: string; href: string; description: string }[] = [
 
 const MainNavigation = () => {
   return (
-    <nav className="hidden md:block relative z-50 text-[var(--text-3)] ">
+    <nav className="hidden md:block relative z-50 ">
       <NavigationMenu className="max-h-[80px]">
         <NavigationMenuList>
-          <NavigationMenuItem className="">
+          <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
               <Icons.logo />
             </Link>
@@ -46,7 +46,7 @@ const MainNavigation = () => {
             <NavigationMenuTrigger className="bg-transparent">
               Getting started
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-[var(--bgColor)] text-[var(--text-1)]">
+            <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>

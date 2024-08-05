@@ -5,7 +5,7 @@ export default function InfiniteScroll() {
   const midIndex = Math.floor(testimonials.length / 2);
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper w-full">
         {testimonials.slice(0, midIndex).map((testimonial, index) => {
           const delay = (60 / midIndex) * (midIndex - (index + 1)) * -1;
           return (

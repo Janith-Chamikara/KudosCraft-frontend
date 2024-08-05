@@ -3,23 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: #020617; /* Your original dark blue */
-    --foreground: 210 40% 98%; /* Very light blue for contrast */
-    --card: 222.2 84% 6.9%; /* Slightly lighter background for cards */
-    --card-foreground: 210 40% 96%; /* Slightly less bright text on cards */
-    --primary: 210 70% 50%; /* A more saturated blue for primary elements */
-    --primary-foreground: 210 40% 98%; /* Light text on primary */
-    --secondary: 222.2 50% 15%; /* Darker blue for secondary elements */
-    --secondary-foreground: 210 40% 98%;
-    --muted: 222.2 30% 10%; /* Even darker blue for muted elements */
-    --muted-foreground: 210 40% 80%; /* Less bright text on muted */
-    --accent: 190 60% 40%; /* A slightly purplish blue for accents */
-    --accent-foreground: 210 40% 98%;
-    --border: 222.2 84% 10%; /* Slightly lighter than background for borders */
-    --input: 222.2 84% 12%; /* Slightly lighter than border for inputs */
-    --destructive: 0 60% 40%; /* A red hue for destructive actions */
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -27,15 +29,10 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --bgColor: #020617;
-    --text-1: #818ed6;
-    --text-2: #c1c6de;
-    --text-3: #ffffff;
-    --boxshadow: '5px 5px 19.8px 0px #3652C9';
   }
 
-  .dark {
-    --background: #020617;
+  :root {
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -63,26 +60,10 @@
 }
 
 @layer base {
-  .font-body {
-    font-family: var(--font-body);
-  }
-  .font-heading {
-    font-family: var(--font-heading);
-  }
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground font-body;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading;
+    @apply bg-background text-foreground;
   }
 }
