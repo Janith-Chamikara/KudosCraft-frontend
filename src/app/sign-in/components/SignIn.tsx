@@ -6,9 +6,9 @@ import { Icons } from '@/components/ui/icons';
 
 export default function SignIn() {
   return (
-    <div className="flex min-h-[100dvh] items-center justify-center bg-[#020617] px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-md flex-col items-center justify-center space-y-6 rounded-2xl bg-card p-8 shadow-xl sm:p-10">
-        <div className="grid w-full grid-cols-2 gap-4 text-[var(--text-2)]">
+        <div className="grid w-full grid-cols-2 gap-4 ">
           <Button variant="outline" className="flex-1   ">
             <Icons.GithubIcon className="mr-2 h-4 w-4" />
             GitHub
@@ -28,7 +28,7 @@ export default function SignIn() {
             </span>
           </div>
         </div>
-        <div className="grid w-full gap-4 text-[var(--text-2)]">
+        <div className="grid w-full gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input id="email" type="email" placeholder="m@example.com" />
@@ -37,7 +37,7 @@ export default function SignIn() {
             <Label htmlFor="password">Password</Label>
             <Input id="password" type="password" />
           </div>
-          <Button type="submit" className="w-full bg-[var(--bgColor)]">
+          <Button type="submit" variant={'default'}>
             Sign In
           </Button>
         </div>
