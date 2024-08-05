@@ -86,7 +86,7 @@ export default function PricingCard({
       <CardFooter className="mt-2">
         <Button
           disabled={disabled}
-          className="relative inline-flex w-full items-center justify-center rounded-md bg-[#141241] text-white font-medium transition-colors focus:outline-none"
+          className="relative inline-flex w-full items-center justify-center rounded-md font-medium transition-colors"
         >
           {actionLabel}
         </Button>

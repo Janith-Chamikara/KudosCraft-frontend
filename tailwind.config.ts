@@ -52,13 +52,9 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        text1: '#818ed6',
-        text2: '#c1c6de',
-        text3: '#ffffff',
-        bgColor: '#020617',
       },
       boxShadow: {
-        mainShadow: '5px 5px 19.8px 0px #3652C9',
+        mainShadow: '5px 5px 19.8px 0px hsl(var(--foreground))',
       },
       borderRadius: {
         lg: 'var(--radius)',
