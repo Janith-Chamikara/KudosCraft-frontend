@@ -1,7 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { Icons } from '@/components/ui/icons';
 import FormField from '@/app/components/FormField';
@@ -106,8 +105,8 @@ export default function SignUp() {
         <div className="text-center text-sm text-muted-foreground">
           Already have an account?{' '}
           <Link
-            href="/auth/sign-in"
-            className=" underline underline-offset-4"
+            href="/sign-in"
+            className="font-semibold underline underline-offset-4"
             prefetch={false}
           >
             Sign In

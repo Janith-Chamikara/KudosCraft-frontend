@@ -9,7 +9,6 @@ import FormField from '@/app/components/FormField';
 import { loginSchema } from '@/schemas/schema';
 import { loginAction } from '@/actions/actions';
 import SubmitButton from '@/app/components/submit-button';
-import { isAxiosError } from 'axios';
 import toast from 'react-hot-toast';
 
 export default function SignIn() {
@@ -75,8 +74,8 @@ export default function SignIn() {
         <div className="text-center text-sm text-muted-foreground">
           Do not have an account?
           <Link
-            href="#"
-            className="font-medium underline underline-offset-4"
+            href="/sign-up"
+            className="font-semibold underline underline-offset-4"
             prefetch={false}
           >
             Sign Up
