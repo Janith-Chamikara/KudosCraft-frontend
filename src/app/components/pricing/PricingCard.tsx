@@ -35,7 +35,7 @@ export default function PricingCard({
 }: PricingCardProps) {
   return (
     <Card
-      className={`w-72 bg-bgColor shadow-mainShadow text-text1 flex flex-col justify-between py-1 ${popular && 'border-rose-400'} mx-auto sm:mx-0`}
+      className={`w-72 bg-bgColor border shadow-lg text-text1 flex flex-col justify-between py-1 ${popular && 'border-rose-400'} mx-auto sm:mx-0`}
     >
       <div>
         <CardHeader className="pb-8 pt-4">

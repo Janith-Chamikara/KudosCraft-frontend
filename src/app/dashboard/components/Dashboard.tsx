@@ -101,7 +101,7 @@ export default function Dashboard() {
               <Input
                 type="search"
                 placeholder="Search testimonials..."
-                className="w-full rounded-md bg-background pl-8 pr-4 shadow-sm focus:outline-none focus:ring-1 focus:ring-primary sm:w-[200px]"
+                className="w-full rounded-md bg-background pl-8 pr-4 border shadow-sm focus:outline-none focus:ring-1 focus:ring-primary sm:w-[200px]"
               />
             </div>
           </div>
