@@ -4,12 +4,12 @@ import {
   howToDoItInstructions,
   FAQs,
 } from './components/Assests';
-import { AuroraHero } from './components/AuroraHero';
 import CustomAccordion from './components/CustomAccordian';
 import Footer from './components/Footer';
 import StepInstruction from './components/StepInstruction';
 import InfiniteScroll from './components/infiniteScroll/InfiniteScroll';
 import PricingSection from './components/pricing/PricingSection';
+import { AuroraHero } from './components/AuroraHero';
 
 export default function Home() {
   return (
@@ -34,7 +34,7 @@ export default function Home() {
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
               What does KudosCraft offer?
             </h1>
-            <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] shadow-mainShadow p-[15px] lg:p-[24px]">
+            <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] border shadow-lg p-[15px] lg:p-[24px]">
               {AccordianItems.map((item, index) => (
                 <CustomAccordion
                   id={`${index + 1}`}
@@ -58,8 +58,8 @@ export default function Home() {
                 <div
                   className={
                     index % 2 === 0
-                      ? 'w-[90%]  p-[24px] mx-auto flex shadow-mainShadow rounded-[10px] flex-col md:flex-row justify-between items-center'
-                      : 'w-[90%]  p-[24px] mx-auto flex shadow-mainShadow rounded-[10px] flex-col md:flex-row-reverse justify-between items-center'
+                      ? 'w-[90%]  p-[24px] mx-auto flex border shadow-lg rounded-[10px] flex-col md:flex-row justify-between items-center'
+                      : 'w-[90%]  p-[24px] mx-auto flex border shadow-lg rounded-[10px] flex-col md:flex-row-reverse justify-between items-center'
                   }
                   key={index}
                 >
@@ -109,7 +109,7 @@ export default function Home() {
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center ">
               Frequently asked questions
             </h1>
-            <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] shadow-mainShadow p-[15px] lg:p-[24px]">
+            <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] shadow-lg p-[15px] lg:p-[24px]">
               {FAQs.map((item, index) => (
                 <CustomAccordion
                   id={`${index + 1}`}

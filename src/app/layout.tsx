@@ -3,6 +3,10 @@ import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import './globals.css';
 import React from 'react';
+import ThemeContextProvider from '@/context/theme-context-provider';
+import ThemeSwitch from './components/ThemeSwitch';
+import { Toaster } from 'react-hot-toast';
+
 const fontHeading = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -31,7 +35,27 @@ export default function RootLayout({
       <body
         className={cn('antialiased', fontHeading.variable, fontBody.variable)}
       >
-        {children}
+        <ThemeContextProvider>
+          {children}
+          <ThemeSwitch />
+          <Toaster
+            toastOptions={{
+              success: {
+                style: {
+                  backgroundColor: 'green',
+                  color: 'white',
+                },
+              },
+              error: {
+                style: {
+                  backgroundColor: 'red',
+                  color: 'white',
+                },
+              },
+            }}
+            position="top-right"
+          />
+        </ThemeContextProvider>
       </body>
     </html>
   );

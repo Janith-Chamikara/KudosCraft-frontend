@@ -11,6 +11,7 @@ import {
 } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Header from './Header';
+import { useTheme } from '@/context/theme-context-provider';
 
 type AuroraHeroProps = {
   heading: string;
@@ -18,7 +19,7 @@ type AuroraHeroProps = {
   content: string;
 };
 
-const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
+const COLORS_TOP = ['#13FFAA', '#1E67C6', '#1E67C3', '#DD335C'];
 
 export const AuroraHero = ({
   heading,
@@ -26,6 +27,7 @@ export const AuroraHero = ({
   buttonText,
 }: AuroraHeroProps) => {
   const color = useMotionValue(COLORS_TOP[0]);
+  const { theme } = useTheme();
 
   useEffect(() => {
     animate(color, COLORS_TOP, {
@@ -36,7 +38,7 @@ export const AuroraHero = ({
     });
   }, []);
 
-  const backgroundImage = useMotionTemplate`radial-gradient(150% 150% at 50% 100%, #020617 50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(150% 150% at 50% 100%, hsl(var(--background)) 50%, ${color})`;
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
@@ -45,7 +47,7 @@ export const AuroraHero = ({
       style={{
         backgroundImage,
       }}
-      className="w-[100%] relative grid min-h-screen overflow-hidden px-4 "
+      className=" w-[100%] relative grid min-h-screen overflow-hidden px-4 "
     >
       <Header />
       <div className="relative z-10 flex flex-col items-center">
