@@ -33,12 +33,12 @@ const components: { title: string; href: string; description: string }[] = [
 
 const MainNavigation = () => {
   return (
-    <nav className="hidden md:block relative z-50 ">
+    <nav className="hidden md:block max-w-6xl w-full mx-auto relative z-50 ">
       <NavigationMenu className="max-h-[80px]">
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
-              <Icons.logo />
+              <Icons.logo className="text-black" />
             </Link>
           </NavigationMenuItem>
 
@@ -51,7 +51,7 @@ const MainNavigation = () => {
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#020617cc]/50 to-[#050e35] p-6 no-underline outline-none focus:shadow-md"
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md  p-6 no-underline outline-none focus:shadow-md"
                       href="/"
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">
@@ -78,7 +78,7 @@ const MainNavigation = () => {
             <NavigationMenuTrigger className="bg-transparent opacity-0.5">
               About
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-[var(--bgColor)] text-[var(--text-1)]">
+            <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {components.map((component) => (
                   <ListItem

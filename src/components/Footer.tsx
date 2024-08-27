@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className="mt-[100px] w-full bg-bgColor py-[50px] md:py-[100px] text-text1 flex flex-col text-center items-center border-t-4 justify-center p-[20px]">
       <div className="flex flex-col mx-auto gap-[20px]">
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+        <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
           Wanna be a part of this project?
         </h1>
         <p className="text-sm">

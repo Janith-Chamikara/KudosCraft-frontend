@@ -1,6 +1,6 @@
 'use server';
 
-import { axiosPublic } from '@/app/axios/axios';
+import { axiosPublic } from '@/lib/axios';
 import { isAxiosError } from 'axios';
 import { FieldValues } from 'react-hook-form';
 

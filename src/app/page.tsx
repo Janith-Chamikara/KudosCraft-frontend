@@ -1,37 +1,29 @@
-import AnimationContainer from './components/AnimationContainer';
+import AnimationContainer from '@/components/AnimationContainer';
 import {
   AccordianItems,
   howToDoItInstructions,
   FAQs,
-} from './components/Assests';
-import CustomAccordion from './components/CustomAccordian';
-import Footer from './components/Footer';
-import StepInstruction from './components/StepInstruction';
-import InfiniteScroll from './components/infiniteScroll/InfiniteScroll';
-import PricingSection from './components/pricing/PricingSection';
-import { AuroraHero } from './components/AuroraHero';
+} from '@/components/Assests';
+import CustomAccordion from '@components/CustomAccordian';
+import Footer from '@components/Footer';
+import StepInstruction from '@components/StepInstruction';
+import InfiniteScroll from '@components/infiniteScroll/InfiniteScroll';
+import PricingSection from '@components/pricing/PricingSection';
+import HeroSection from '@/components/HeroSection';
 
 export default function Home() {
   return (
     <div className="grid min-h-[100dvh] bg-background grid-rows-[auto_1fr_auto]">
-      <main className="w-[100%] mx-auto flex min-h-screen flex-col gap-[50px] items-center justify-between">
+      <main className="w-[100%] max-w-4xl mx-auto flex min-h-screen flex-col gap-[50px] items-center justify-between">
         {/*Hero Section*/}
-        <section id="hero" className="w-[100%] bg-background">
-          <AuroraHero
-            heading="Capture and Share Your Success Stories"
-            content="Collect client reviews, seamlessly manage testimonials, and easily
-          embed them in various styles on your site."
-            buttonText="Get started!"
-          />
-        </section>
-
+        <HeroSection />
         <div className="flex flex-col  gap-[50px]">
           {/*What KudosCraft offers*/}
           <section
             id="whatIsKudosCraft"
             className="w-[100%] flex justify-center gap-[50px] flex-col min-h-screen "
           >
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               What does KudosCraft offer?
             </h1>
             <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] border shadow-lg p-[15px] lg:p-[24px]">
@@ -50,7 +42,7 @@ export default function Home() {
             id="howItWorks"
             className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
           >
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center ">
+            <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               How it works
             </h1>
             <div className="flex flex-col gap-[50px]">
@@ -82,7 +74,7 @@ export default function Home() {
             id="testimonials"
             className="mt-[100px] !max-w-full !w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
           >
-            <h1 className="scroll-m-20 w-full text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+            <h1 className="text-4xl font-bold text-center tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               What people say about us ?
             </h1>
             <div>
@@ -94,8 +86,8 @@ export default function Home() {
             id="pricing"
             className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
           >
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
-              Choose your plan according to your needs
+            <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              Choose your plan
             </h1>
             <div>
               <PricingSection />
@@ -106,7 +98,7 @@ export default function Home() {
             id="FAQs"
             className="w-[100%] flex justify-center gap-[50px] flex-col min-h-screen "
           >
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center ">
+            <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               Frequently asked questions
             </h1>
             <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] shadow-lg p-[15px] lg:p-[24px]">

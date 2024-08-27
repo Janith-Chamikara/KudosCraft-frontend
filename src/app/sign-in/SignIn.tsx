@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FieldValues, useForm } from 'react-hook-form';
 import { Icons } from '@/components/ui/icons';
-import FormField from '@/app/components/FormField';
+import FormField from '@/components/FormField';
 import { loginSchema } from '@/schemas/schema';
-import { loginAction } from '@/actions/actions';
-import SubmitButton from '@/app/components/submit-button';
+import { loginAction } from '@/lib/actions';
+import SubmitButton from '@/components/submit-button';
 import toast from 'react-hot-toast';
 
 export default function SignIn() {

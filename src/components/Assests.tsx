@@ -1,4 +1,4 @@
-import { MainNavItem, SidebarNavItem } from '../types/navType';
+import { MainNavItem, SidebarNavItem } from '@/lib/types';
 
 type AccordianItemType = {
   title: string;

@@ -4,8 +4,11 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 import React from 'react';
 import ThemeContextProvider from '@/context/theme-context-provider';
-import ThemeSwitch from './components/ThemeSwitch';
+
 import { Toaster } from 'react-hot-toast';
+import MainNavigation from '../components/MainNavigation';
+import { MobileNavigation } from '../components/MobileNavigation';
+import ThemeSwitch from '../components/ThemeSwitch';
 
 const fontHeading = Inter({
   subsets: ['latin'],
@@ -31,11 +34,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="!scroll-smooth">
       <body
         className={cn('antialiased', fontHeading.variable, fontBody.variable)}
       >
         <ThemeContextProvider>
+          <MainNavigation />
+          <MobileNavigation />
           {children}
           <ThemeSwitch />
           <Toaster
