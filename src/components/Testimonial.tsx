@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Icons } from '../../components/ui/icons';
+import { Icons } from './ui/icons';
 
 type TestimonialProps = {
   review: string;

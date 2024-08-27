@@ -3,13 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { Icons } from '@/components/ui/icons';
-import FormField from '@/app/components/FormField';
+import FormField from '@/components/FormField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FieldValues, useForm } from 'react-hook-form';
 import { signUpSchema } from '@/schemas/schema';
-import { signUpAction } from '@/actions/actions';
+import { signUpAction } from '@/lib/actions';
 import toast from 'react-hot-toast';
-import SubmitButton from '@/app/components/submit-button';
+import SubmitButton from '@/components/submit-button';
 
 export default function SignUp() {
   const {
