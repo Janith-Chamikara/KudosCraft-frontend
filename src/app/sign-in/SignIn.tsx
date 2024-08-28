@@ -10,6 +10,7 @@ import { loginSchema } from '@/schemas/schema';
 import { loginAction } from '@/lib/actions';
 import SubmitButton from '@/components/submit-button';
 import toast from 'react-hot-toast';
+import { getSession, signIn, useSession } from 'next-auth/react';
 
 export default function SignIn() {
   const {
@@ -20,9 +21,16 @@ export default function SignIn() {
     resolver: zodResolver(loginSchema), // Apply the zodResolver
   });
   const onSubmit = async (data: FieldValues) => {
-    const response = await loginAction(data);
-    response?.status === 'success' && toast.success(response.message);
-    response?.status === 'error' && toast.error(response.message);
+    const result = await signIn('credentials', {
+      redirect: false,
+      email: data.email,
+      password: data.password,
+    });
+    if (!result?.ok) {
+      toast.error('Invalid email or password');
+    } else if (result?.ok) {
+      toast.success('Login successful');
+    }
   };
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
@@ -33,7 +41,7 @@ export default function SignIn() {
             <Icons.GithubIcon className="mr-2 h-4 w-4" />
             GitHub
           </Button>
-          <Button className="flex-1   ">
+          <Button className="flex-1">
             <Icons.ChromeIcon className="mr-2 h-4 w-4" />
             Google
           </Button>

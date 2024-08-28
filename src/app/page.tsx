@@ -13,111 +13,62 @@ import HeroSection from '@/components/HeroSection';
 
 export default function Home() {
   return (
-    <div className="grid min-h-[100dvh] bg-background grid-rows-[auto_1fr_auto]">
-      <main className="w-[100%] max-w-4xl mx-auto flex min-h-screen flex-col gap-[50px] items-center justify-between">
-        {/*Hero Section*/}
+    <div className="flex flex-col min-h-screen bg-background">
+      <main className="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HeroSection />
-        <div className="flex flex-col  gap-[50px]">
-          {/*What KudosCraft offers*/}
-          <section
-            id="whatIsKudosCraft"
-            className="w-[100%] flex justify-center gap-[50px] flex-col min-h-screen "
-          >
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              What does KudosCraft offer?
-            </h1>
-            <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] border shadow-lg p-[15px] lg:p-[24px]">
-              {AccordianItems.map((item, index) => (
-                <CustomAccordion
-                  id={`${index + 1}`}
-                  key={item.title}
-                  title={item.title}
-                  details={item.details}
-                />
-              ))}
-            </div>
-          </section>
-          {/*How it works section*/}
-          <section
-            id="howItWorks"
-            className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
-          >
-            <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              How it works
-            </h1>
-            <div className="flex flex-col gap-[50px]">
-              {howToDoItInstructions.map((item, index) => (
-                <div
-                  className={
-                    index % 2 === 0
-                      ? 'w-[90%]  p-[24px] mx-auto flex border shadow-lg rounded-[10px] flex-col md:flex-row justify-between items-center'
-                      : 'w-[90%]  p-[24px] mx-auto flex border shadow-lg rounded-[10px] flex-col md:flex-row-reverse justify-between items-center'
-                  }
-                  key={index}
-                >
-                  <div className="flex-1">
-                    <StepInstruction
-                      stepNo={item.stepNo}
-                      title={item.title}
-                      description={item.description}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <AnimationContainer src={item.animationLink} />
-                  </div>
+
+        <section id="howItWorks" className="py-16 sm:py-24">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-12 text-center">
+            How it works
+          </h2>
+          <div className="space-y-12 sm:space-y-16">
+            {howToDoItInstructions.map((item, index) => (
+              <div
+                key={index}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                } items-center gap-8 p-6 border rounded-lg shadow-lg`}
+              >
+                <div className="flex-1 w-full md:w-1/2">
+                  <StepInstruction
+                    stepNo={item.stepNo}
+                    title={item.title}
+                    description={item.description}
+                  />
                 </div>
-              ))}
-            </div>
-          </section>
-          {/*Testimonials*/}
-          <section
-            id="testimonials"
-            className="mt-[100px] !max-w-full !w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
-          >
-            <h1 className="text-4xl font-bold text-center tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              What people say about us ?
-            </h1>
-            <div>
-              <InfiniteScroll />
-            </div>
-          </section>
-          {/*Pricing*/}
-          <section
-            id="pricing"
-            className="w-[100%] flex gap-[50px] flex-col min-h-screen mx-auto "
-          >
-            <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              Choose your plan
-            </h1>
-            <div>
-              <PricingSection />
-            </div>
-          </section>
-          {/*FAQ*/}
-          <section
-            id="FAQs"
-            className="w-[100%] flex justify-center gap-[50px] flex-col min-h-screen "
-          >
-            <h1 className="text-4xl text-center font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              Frequently asked questions
-            </h1>
-            <div className="w-[90%] lg:min-w-[903px] mx-auto rounded-[10px] shadow-lg p-[15px] lg:p-[24px]">
-              {FAQs.map((item, index) => (
-                <CustomAccordion
-                  id={`${index + 1}`}
-                  key={item.title}
-                  title={item.title}
-                  details={item.details}
-                />
-              ))}
-            </div>
-          </section>
-        </div>
+                <div className="flex-1 w-full mx-auto md:w-1/2">
+                  <AnimationContainer src={item.animationLink} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="pricing" className="py-16 sm:py-24">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-12 text-center">
+            Choose your plan
+          </h2>
+          <PricingSection />
+        </section>
+
+        <section id="FAQs" className="py-16 sm:py-24">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-12 text-center">
+            Frequently asked questions
+          </h2>
+          <div className="w-full max-w-4xl mx-auto rounded-lg shadow-lg p-4 sm:p-6 lg:p-8">
+            {FAQs.map((item, index) => (
+              <CustomAccordion
+                id={`${index + 1}`}
+                key={item.title}
+                title={item.title}
+                details={item.details}
+              />
+            ))}
+          </div>
+        </section>
       </main>
-      {/*Footer*/}
-      <section id="footer" className="bg-background">
-        <Footer />
-      </section>
+
+      <Footer />
     </div>
   );
 }

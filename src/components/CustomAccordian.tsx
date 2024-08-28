@@ -19,7 +19,9 @@ export default function CustomAccordion({
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value={id}>
-        <AccordionTrigger className="lg:text-[20px]">{title}</AccordionTrigger>
+        <AccordionTrigger className="lg:text-[20px] text-left">
+          {title}
+        </AccordionTrigger>
         <AccordionContent>{details}</AccordionContent>
       </AccordionItem>
     </Accordion>

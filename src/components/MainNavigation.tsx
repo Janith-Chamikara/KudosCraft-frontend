@@ -11,24 +11,25 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { Icons } from '@/components/ui/icons';
+import Logo from '@components/Logo';
 
 const components: { title: string; href: string; description: string }[] = [
-  {
-    title: 'Client Feedback',
-    href: '#testimonials',
-    description:
-      'Read what our clients have to say about their experience with KudosCraft',
-  },
+  // {
+  //   title: 'Client Feedback',
+  //   href: '#testimonials',
+  //   description:
+  //     'Read what our clients have to say about their experience with KudosCraft',
+  // },
   {
     title: 'Contact us',
     href: '#footer',
     description: 'Have questions or need assistance? Reach out to us',
   },
-  {
-    title: 'About the creater',
-    href: '#footer',
-    description: 'Explore about the production team',
-  },
+  // {
+  //   title: 'About the creater',
+  //   href: '#footer',
+  //   description: 'Explore about the production team',
+  // },
 ];
 
 const MainNavigation = () => {
@@ -38,7 +39,7 @@ const MainNavigation = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
-              <Icons.logo className="text-black" />
+              <Logo />
             </Link>
           </NavigationMenuItem>
 
@@ -74,7 +75,7 @@ const MainNavigation = () => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger className="bg-transparent opacity-0.5">
               About
             </NavigationMenuTrigger>
@@ -91,6 +92,15 @@ const MainNavigation = () => {
                 ))}
               </ul>
             </NavigationMenuContent>
+          </NavigationMenuItem> */}
+          <NavigationMenuItem>
+            <Link href="#footer" legacyBehavior passHref>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} bg-transparent`}
+              >
+                About
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="#FAQs" legacyBehavior passHref>
