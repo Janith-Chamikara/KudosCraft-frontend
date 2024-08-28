@@ -13,7 +13,7 @@ export default function SubmitButton({
     <Button
       type="submit"
       variant={'default'}
-      className="group text-white flex px-7 py-3 w-max mx-auto items-center justify-center gap-2 transition-all "
+      className="group text-primary-foreground flex px-7 py-3 w-max mx-auto items-center justify-center gap-2 transition-all "
       disabled={disabled}
     >
       {disabled ? (

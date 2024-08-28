@@ -7,6 +7,8 @@ import {
 } from 'react-hook-form';
 
 import { Icons } from '@/components/ui/icons';
+import { z } from 'zod';
+import { loginSchema, signUpSchema } from '@/schemas/schema';
 
 export interface NavItem {
   title: string;
@@ -45,4 +47,25 @@ export type Status = {
   status: 'default' | 'success' | 'error';
   message: string;
   data?: object;
+};
+
+export type SignUpInputs = z.infer<typeof signUpSchema>;
+export type LoginInputs = z.infer<typeof loginSchema>;
+
+export type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  otherNames: string;
+  email: string;
+  isActive: boolean;
+  verified: boolean;
+  createdAt: string;
+  updatedAt: string;
+  roleId: string;
+  customerId: string;
+  jobId: null;
+
+  accessToken: string;
+  refreshToken: string;
 };

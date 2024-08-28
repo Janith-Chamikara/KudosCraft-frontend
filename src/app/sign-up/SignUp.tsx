@@ -10,16 +10,20 @@ import { signUpSchema } from '@/schemas/schema';
 import { signUpAction } from '@/lib/actions';
 import toast from 'react-hot-toast';
 import SubmitButton from '@/components/submit-button';
+import { SignUpInputs } from '@/lib/types';
 
 export default function SignUp() {
   const {
     register,
     formState: { errors, isSubmitting },
     handleSubmit,
-  } = useForm({
-    resolver: zodResolver(signUpSchema), // Apply the zodResolver
+  } = useForm<SignUpInputs>({
+    resolver: zodResolver(signUpSchema),
   });
+  console.log(errors);
   const onSubmit = async (data: FieldValues) => {
+    console.log('done');
+    console.log(data);
     const response = await signUpAction(data);
     response?.status === 'success' && toast.success(response.message);
     response?.status === 'error' && toast.error(response.message);
@@ -64,7 +68,7 @@ export default function SignUp() {
             <FormField
               type="lastName"
               placeholder="Last name"
-              name="firstName"
+              name="lastName"
               register={register}
               error={errors.lastName}
             />
@@ -94,7 +98,7 @@ export default function SignUp() {
             <Label htmlFor="password">Confirm password</Label>
             <FormField
               type="confirmPassword"
-              placeholder="Confire password"
+              placeholder="Confirm password"
               name="confirmPassword"
               register={register}
               error={errors.confirmPassword}

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { mobileNavItems } from './Assests';
+import Logo from '@components/Logo';
 
 export function MobileNavigation() {
   const [open, setOpen] = React.useState(false);
@@ -29,7 +30,7 @@ export function MobileNavigation() {
           className="flex max-h-[80px] items-center"
           onOpenChange={setOpen}
         >
-          <Icons.logo className="mr-2" />
+          <Logo />
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
