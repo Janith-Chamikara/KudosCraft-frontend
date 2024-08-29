@@ -5,14 +5,17 @@ import Link from 'next/link';
 import { Icons } from '@/components/ui/icons';
 import FormField from '@/components/FormField';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FieldValues, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { signUpSchema } from '@/schemas/schema';
 import { signUpAction } from '@/lib/actions';
 import toast from 'react-hot-toast';
 import SubmitButton from '@/components/submit-button';
 import { SignUpInputs } from '@/lib/types';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function SignUp() {
+  const router = useRouter();
   const {
     register,
     formState: { errors, isSubmitting },
@@ -21,12 +24,21 @@ export default function SignUp() {
     resolver: zodResolver(signUpSchema),
   });
   console.log(errors);
-  const onSubmit = async (data: FieldValues) => {
-    console.log('done');
-    console.log(data);
+  const onSubmit = async (data: SignUpInputs) => {
     const response = await signUpAction(data);
-    response?.status === 'success' && toast.success(response.message);
-    response?.status === 'error' && toast.error(response.message);
+    if (response) {
+      if (response.status === 'success') {
+        toast.success(response.message);
+        await signIn('credentials', {
+          redirect: false,
+          email: data.email,
+          password: data.password,
+        });
+        router.push('/account-setup');
+      } else {
+        toast.error(response.message);
+      }
+    }
   };
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
@@ -97,7 +109,7 @@ export default function SignUp() {
           <div className="grid gap-2">
             <Label htmlFor="password">Confirm password</Label>
             <FormField
-              type="confirmPassword"
+              type="password"
               placeholder="Confirm password"
               name="confirmPassword"
               register={register}

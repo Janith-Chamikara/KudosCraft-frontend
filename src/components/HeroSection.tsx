@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import SubmitButton from './submit-button';
 
 const features = [
   { icon: MessageCircle, text: 'Collect testimonials effortlessly' },
@@ -52,10 +53,7 @@ export default function HeroSection() {
                 placeholder="Enter your work email"
                 className="flex-1"
               />
-              <Button className="inline-flex items-center justify-center whitespace-nowrap">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <SubmitButton>Get Started</SubmitButton>
             </div>
             <p className="text-xs text-muted-foreground">
               14-day free trial. No credit card required.

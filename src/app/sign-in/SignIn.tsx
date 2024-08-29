@@ -11,6 +11,7 @@ import { loginAction } from '@/lib/actions';
 import SubmitButton from '@/components/submit-button';
 import toast from 'react-hot-toast';
 import { getSession, signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
   const {
@@ -20,6 +21,7 @@ export default function SignIn() {
   } = useForm({
     resolver: zodResolver(loginSchema), // Apply the zodResolver
   });
+  const router = useRouter();
   const onSubmit = async (data: FieldValues) => {
     const result = await signIn('credentials', {
       redirect: false,
@@ -28,8 +30,10 @@ export default function SignIn() {
     });
     if (!result?.ok) {
       toast.error('Invalid email or password');
+      return;
     } else if (result?.ok) {
       toast.success('Login successful');
+      router.push('/account-setup');
     }
   };
   return (
@@ -86,6 +90,7 @@ export default function SignIn() {
             className="font-semibold underline underline-offset-4"
             prefetch={false}
           >
+            {' '}
             Sign Up
           </Link>
         </div>
