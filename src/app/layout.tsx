@@ -4,11 +4,11 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 import React from 'react';
 import ThemeContextProvider from '@/context/theme-context-provider';
-
 import { Toaster } from 'react-hot-toast';
-import MainNavigation from '../components/MainNavigation';
-import { MobileNavigation } from '../components/MobileNavigation';
 import ThemeSwitch from '../components/ThemeSwitch';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import AuthContextProvider from '@/context/auth-context-provider';
 
 const fontHeading = Inter({
   subsets: ['latin'],
@@ -38,29 +38,31 @@ export default function RootLayout({
       <body
         className={cn('antialiased', fontHeading.variable, fontBody.variable)}
       >
-        <ThemeContextProvider>
-          <MainNavigation />
-          <MobileNavigation />
-          {children}
-          <ThemeSwitch />
-          <Toaster
-            toastOptions={{
-              success: {
-                style: {
-                  backgroundColor: 'green',
-                  color: 'white',
+        <AuthContextProvider>
+          <ThemeContextProvider>
+            <Navbar />
+            {children}
+            <Footer />
+            <ThemeSwitch />
+            <Toaster
+              toastOptions={{
+                success: {
+                  style: {
+                    backgroundColor: 'green',
+                    color: 'white',
+                  },
                 },
-              },
-              error: {
-                style: {
-                  backgroundColor: 'red',
-                  color: 'white',
+                error: {
+                  style: {
+                    backgroundColor: 'red',
+                    color: 'white',
+                  },
                 },
-              },
-            }}
-            position="top-right"
-          />
-        </ThemeContextProvider>
+              }}
+              position="top-right"
+            />
+          </ThemeContextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   );

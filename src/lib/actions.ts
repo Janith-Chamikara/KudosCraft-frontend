@@ -15,54 +15,22 @@ export type Status = {
 
 export const loginAction = async (data: FieldValues) => {
   try {
-    const response = await axiosPublic.post('/v1/auth/login', data);
-    const cookies = response.headers['set-cookie'];
-    const accessToken = getTokenFromCookies(cookies as string[], 'accessToken');
-    const accessTokenExpiresIn = getTokenOptions(
-      cookies as string[],
-      'accessToken',
-      2,
-    );
-    const refreshTokenExpiresIn = getTokenOptions(
-      cookies as string[],
-      'refreshToken',
-      2,
-    );
-    const refreshToken = getTokenFromCookies(
-      cookies as string[],
-      'refreshToken',
-    );
+    const response = await axiosPublic.post('/auth/sign-in', data);
+    console.log(response.data);
+    const accessToken = response.data.accessToken;
+    const refreshToken = response.data.refreshToken;
+    const accessTokenExpiresIn = response.data.accessTokenExpiresIn;
+    const refreshTokenExpiresIn = response.data.refreshTokenExpiresIn;
     return {
       data: {
-        ...response.data.user,
-        accessToken,
-        refreshToken,
-        accessTokenExpiresIn,
-        refreshTokenExpiresIn,
+        user: { ...response.data.user },
+        tokenInfo: {
+          accessToken,
+          refreshToken,
+          accessTokenExpiresIn,
+          refreshTokenExpiresIn,
+        },
       },
-      message: response.data.message,
-      status: 'success',
-    } as Status;
-  } catch (error) {
-    if (isAxiosError(error)) {
-      return {
-        message: error.response?.data.message,
-        status: 'error',
-      } as Status;
-    }
-  }
-};
-
-export const logOutAction = async () => {
-  const session = await getServerSession(authOptions);
-  try {
-    const response = await axiosPublic.get('/v1/auth/logout', {
-      headers: {
-        Cookie: `accessToken=${session?.user.accessToken}; refreshToken=${session?.user.refreshToken}`,
-      },
-    });
-    return {
-      data: response.data,
       message: response.data.message,
       status: 'success',
     } as Status;
@@ -78,43 +46,28 @@ export const logOutAction = async () => {
 
 export const refreshAccessToken = async (refreshToken: string) => {
   try {
-    const response = await axiosPublic.get('/v1/auth/refresh', {
+    const response = await axiosPublic.get('/auth/refresh', {
       headers: {
         Cookie: `refreshToken=${refreshToken}`,
       },
     });
-    const cookies = response.headers['set-cookie'];
-    const newAccessToken = getTokenFromCookies(
-      cookies as string[],
-      'accessToken',
-    );
-    const newAccessTokenExpiresIn = getTokenOptions(
-      cookies as string[],
-      'accessToken',
-      2,
-    );
-    const newRefreshToken = getTokenFromCookies(
-      cookies as string[],
-      'refreshToken',
-    );
-    const newRefreshTokenExpiresIn = getTokenOptions(
-      cookies as string[],
-      'refreshToken',
-      2,
-    );
+    console.log(response);
+    const newAccessToken = response.data.accessToken;
+    const newRefreshToken = response.data.refreshToken;
+    const newAccessTokenExpiresIn = response.data.accessTokenExpiresIn;
+    const newRefreshTokenExpiresIn = response.data.refreshTokenExpiresIn;
 
     return {
       data: {
         accessToken: newAccessToken,
-        refreshToken: newRefreshToken,
         accessTokenExpiresIn: newAccessTokenExpiresIn,
-        refreshTokenExpiresIn: newRefreshTokenExpiresIn,
+        refreshToken: newRefreshToken,
+        refreshTokenExpiresIn: newAccessTokenExpiresIn,
       },
       message: response.data.message,
       status: 'success',
     } as Status;
   } catch (error) {
-    console.log(error);
     if (isAxiosError(error)) {
       return {
         message: error.response?.data.message,
@@ -134,6 +87,7 @@ export const signUpAction = async (data: FieldValues) => {
       lastName,
       password,
     });
+    console.log(response.data);
     return {
       status: 'success',
       data: response.data,

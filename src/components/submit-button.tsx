@@ -1,16 +1,13 @@
 import { Button } from '@/components/ui/button';
-import { useFormStatus } from 'react-dom';
+import { ButtonHTMLAttributes } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
-export default function SubmitButton({
-  disabled,
-  children,
-}: {
-  disabled: boolean;
-  children: string;
-}) {
+type Props = ButtonHTMLAttributes<HTMLButtonElement>;
+
+export default function SubmitButton({ disabled, children, ...rest }: Props) {
   return (
     <Button
+      {...rest}
       type="submit"
       variant={'default'}
       className="group text-primary-foreground flex px-7 py-3 w-max mx-auto items-center justify-center gap-2 transition-all "
