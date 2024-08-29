@@ -30,6 +30,7 @@ const navItems: NavItem[] = [
   { label: 'About', href: '/#howItWorks' },
   { label: 'FAQ', href: '/#FAQs' },
   { label: 'Contact', href: '/#footer' },
+  { label: 'Dashboard', href: '/dashboard' },
 ];
 
 export default function Navbar() {

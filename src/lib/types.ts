@@ -8,7 +8,11 @@ import {
 
 import { Icons } from '@/components/ui/icons';
 import { z } from 'zod';
-import { loginSchema, signUpSchema } from '@/schemas/schema';
+import {
+  accountSetupSchema,
+  loginSchema,
+  signUpSchema,
+} from '@/schemas/schema';
 
 export interface NavItem {
   title: string;
@@ -51,6 +55,7 @@ export type Status = {
 
 export type SignUpInputs = z.infer<typeof signUpSchema>;
 export type LoginInputs = z.infer<typeof loginSchema>;
+export type AccoutSetupFormInputs = z.infer<typeof accountSetupSchema>;
 
 export type LoginResponse = {
   user: {
