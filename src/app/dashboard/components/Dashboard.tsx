@@ -1,245 +1,188 @@
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
+import {
+  Home,
+  Users,
+  Star,
+  BarChart,
+  Settings,
+  PlusCircle,
+  Search,
+  ChevronDown,
+  SmileIcon,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuItem,
-  DropdownMenuCheckboxItem,
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Input } from '@/components/ui/input';
-import { Icons } from '@/components/ui/icons';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardFooter,
-} from '@/components/ui/card';
+
+const sidebarItems = [
+  { icon: Home, label: 'Dashboard', href: '/dashboard' },
+  { icon: Users, label: 'Workspaces', href: '/workspaces' },
+  { icon: Star, label: 'Testimonials', href: '/testimonials' },
+  { icon: BarChart, label: 'Analytics', href: '/analytics' },
+  { icon: Settings, label: 'Settings', href: '/settings' },
+];
 
 export default function Dashboard() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b bg-background px-4 sm:h-16 sm:px-6">
-        <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <Icons.FeatherIcon className="h-6 w-6 text-primary" />
-          <span className="font-bold">KudosCraft</span>
-        </Link>
-        <nav className="hidden gap-4 sm:flex">
-          <Link
-            href="#"
-            className="text-sm font-medium transition-colors hover:text-primary"
-            prefetch={false}
-          >
-            Testimonials
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium transition-colors hover:text-primary"
-            prefetch={false}
-          >
-            Customers
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium transition-colors hover:text-primary"
-            prefetch={false}
-          >
-            Settings
-          </Link>
-        </nav>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="icon" className="sm:hidden">
-            <Icons.MenuIcon className="h-5 w-5" />
-          </Button>
+    <div className="flex h-screen border-t bg-background max-w-[95%] mx-auto">
+      {/* Sidebar */}
+      <aside className="w-16 md:w-64 bg-card border-r flex flex-col">
+        <div className="p-2 flex items-center justify-center md:justify-start">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
+              <Button
+                variant="ghost"
+                className="w-full px-2 border justify-start"
+              >
+                <SmileIcon className="h-5 w-5" />
+                <span className="hidden md:inline-block font-semibold  ml-3">
+                  My Workspace
+                </span>
+                <span className="md:hidden">WS</span>
+                <ChevronDown className="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuContent align="start" className="w-56">
+              <DropdownMenuItem>Personal Projects</DropdownMenuItem>
+              <DropdownMenuItem>Team Alpha</DropdownMenuItem>
+              <DropdownMenuItem>Client XYZ</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem>
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Create New Workspace
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </header>
-      <main className="flex-1 p-4 sm:p-6">
-        <div className="mb-6 flex items-center justify-between">
-          <h1 className="text-2xl font-bold">Testimonials</h1>
-          <div className="flex items-center gap-2">
-            <Button size="sm">Add Testimonial</Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="h-8 gap-1">
-                  <Icons.FilterIcon className="h-4 w-4" />
-                  <span className="sr-only sm:not-sr-only">Filter</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Filter by</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem checked>
-                  5 stars
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>4 stars</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>3 stars</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>2 stars</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>1 star</DropdownMenuCheckboxItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <div className="relative">
-              <Icons.SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search testimonials..."
-                className="w-full rounded-md bg-background pl-8 pr-4 border shadow-sm focus:outline-none focus:ring-1 focus:ring-primary sm:w-[200px]"
-              />
+        <nav className="flex-1 overflow-y-auto">
+          <ul className="space-y-2 p-2">
+            {sidebarItems.map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  className="flex items-center p-2 rounded-lg hover:bg-accent"
+                >
+                  <item.icon className="h-5 w-5" />
+                  <span className="hidden md:inline-block ml-3">
+                    {item.label}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1 overflow-y-auto">
+        <div className="container mx-auto p-4">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl font-bold">Dashboard</h1>
+            <div className="flex space-x-2">
+              <Input placeholder="Search..." className="w-64" />
+              <Button>
+                <PlusCircle className="mr-2 h-4 w-4" />
+                New Workspace
+              </Button>
             </div>
           </div>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <Card>
-            <CardHeader className="flex items-center gap-4">
-              <Avatar className="h-12 w-12 border-2 border-primary">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <h3 className="text-lg font-bold">Sarah Johnson</h3>
-                <div className="flex items-center gap-1 text-primary">
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-6">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Total Workspaces
+                </CardTitle>
+                <Users className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">12</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Total Testimonials
+                </CardTitle>
+                <Star className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">284</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Average Rating
+                </CardTitle>
+                <Star className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">4.7</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  This Month
+                </CardTitle>
+                <BarChart className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">+28%</div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="bg-card rounded-lg p-6">
+            <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
+            <ul className="space-y-4">
+              <li className="flex items-center">
+                <div className="bg-primary/10 p-2 rounded-full mr-4">
+                  <Star className="h-4 w-4 text-primary" />
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                The KudosCraft platform has been a game-changer for our\n
-                business. The ease of collecting and managing testimonials\n has
-                helped us build trust with our customers and showcase\n our
-                expertise.
-              </p>
-            </CardContent>
-            <CardFooter className="flex items-center justify-end gap-2">
-              <Button variant="ghost" size="icon">
-                <Icons.FilePenIcon className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icons.TrashIcon className="h-4 w-4" />
-              </Button>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardHeader className="flex items-center gap-4">
-              <Avatar className="h-12 w-12 border-2 border-primary">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <h3 className="text-lg font-bold">Alex Smith</h3>
-                <div className="flex items-center gap-1 text-primary">
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-muted stroke-muted-foreground" />
+                <div>
+                  <p className="font-medium">New testimonial received</p>
+                  <p className="text-sm text-muted-foreground">
+                    John Smith left a 5-star review
+                  </p>
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                KudosCraft has made it so easy for us to collect and\n showcase
-                customer testimonials. The platform is intuitive and\n the
-                customer support has been fantastic.
-              </p>
-            </CardContent>
-            <CardFooter className="flex items-center justify-end gap-2">
-              <Button variant="ghost" size="icon">
-                <Icons.FilePenIcon className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icons.TrashIcon className="h-4 w-4" />
-              </Button>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardHeader className="flex items-center gap-4">
-              <Avatar className="h-12 w-12 border-2 border-primary">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <h3 className="text-lg font-bold">Emily Parker</h3>
-                <div className="flex items-center gap-1 text-primary">
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-muted stroke-muted-foreground" />
-                  <Icons.StarIcon className="h-4 w-4 fill-muted stroke-muted-foreground" />
+              </li>
+              <li className="flex items-center">
+                <div className="bg-primary/10 p-2 rounded-full mr-4">
+                  <Users className="h-4 w-4 text-primary" />
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                KudosCraft has been a valuable tool for our business. The\n
-                ability to easily collect and display testimonials has\n helped
-                us build trust with our customers and showcase our\n expertise.
-              </p>
-            </CardContent>
-            <CardFooter className="flex items-center justify-end gap-2">
-              <Button variant="ghost" size="icon">
-                <Icons.FilePenIcon className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icons.TrashIcon className="h-4 w-4" />
-              </Button>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardHeader className="flex items-center gap-4">
-              <Avatar className="h-12 w-12 border-2 border-primary">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <h3 className="text-lg font-bold">Liam Johnson</h3>
-                <div className="flex items-center gap-1 text-primary">
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
-                  <Icons.StarIcon className="h-4 w-4 fill-primary" />
+                <div>
+                  <p className="font-medium">New workspace created</p>
+                  <p className="text-sm text-muted-foreground">
+                    Marketing team added a new workspace
+                  </p>
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                KudosCraft has been a game-changer for our business. The\n
-                platform is easy to use and has helped us collect and\n showcase
-                high-quality testimonials from our customers.
-              </p>
-            </CardContent>
-            <CardFooter className="flex items-center justify-end gap-2">
-              <Button variant="ghost" size="icon">
-                <Icons.FilePenIcon className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icons.TrashIcon className="h-4 w-4" />
-              </Button>
-            </CardFooter>
-          </Card>
+              </li>
+              <li className="flex items-center">
+                <div className="bg-primary/10 p-2 rounded-full mr-4">
+                  <BarChart className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium">Analytics report ready</p>
+                  <p className="text-sm text-muted-foreground">
+                    Monthly performance report is available
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </main>
     </div>
