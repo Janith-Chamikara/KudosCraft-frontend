@@ -36,6 +36,7 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
+  console.log(session);
   const refresh = async () => {
     if (!session?.tokenInfo?.refreshToken) {
       toast.error('Try login again first');
@@ -55,7 +56,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-background shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[95%] mx-auto px-4 ">
         <div className="flex justify-between h-16">
           <Link href="/" className="flex-shrink-0 flex items-center">
             <Logo />
@@ -75,7 +76,7 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex items-center">
-            {session ? (
+            {session?.user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button

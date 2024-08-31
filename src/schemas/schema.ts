@@ -33,8 +33,7 @@ export const signUpSchema = z
   );
 
 export const accountSetupSchema = z.object({
-  usage: z.string().min(1),
-  personalName: z.string().optional(),
+  usage: z.string().optional(),
   jobField: z.string().optional(),
   companyName: z.string().optional(),
   industryType: z.string().optional(),

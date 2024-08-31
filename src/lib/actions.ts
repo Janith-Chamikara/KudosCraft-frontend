@@ -2,9 +2,8 @@
 
 import { axiosPublic } from '@/lib/axios';
 import { isAxiosError } from 'axios';
-import { FieldValues } from 'react-hook-form';
-import { getTokenFromCookies, getTokenOptions } from './utils';
 import { getServerSession } from 'next-auth';
+import { FieldValues } from 'react-hook-form';
 import { authOptions } from './auth-options';
 
 export type Status = {
@@ -13,6 +12,7 @@ export type Status = {
   data?: object;
 };
 
+//auth actions
 export const loginAction = async (data: FieldValues) => {
   try {
     const response = await axiosPublic.post('/auth/sign-in', data);
@@ -62,7 +62,7 @@ export const refreshAccessToken = async (refreshToken: string) => {
         accessToken: newAccessToken,
         accessTokenExpiresIn: newAccessTokenExpiresIn,
         refreshToken: newRefreshToken,
-        refreshTokenExpiresIn: newAccessTokenExpiresIn,
+        refreshTokenExpiresIn: newRefreshTokenExpiresIn,
       },
       message: response.data.message,
       status: 'success',
@@ -94,6 +94,33 @@ export const signUpAction = async (data: FieldValues) => {
       message: response.data.message as string,
     } as Status;
   } catch (error) {
+    if (isAxiosError(error)) {
+      return {
+        status: 'error',
+        message: error.response?.data.message,
+      } as Status;
+    }
+  }
+};
+
+//account-setup
+
+export const setupAccountDetails = async (data: FieldValues) => {
+  const session = await getServerSession(authOptions);
+  try {
+    const response = await axiosPublic.post('/user/account-setup', data, {
+      headers: {
+        Authorization: `Bearer ${session?.tokenInfo.accessToken}`,
+        Cookie: `refreshToken=${session?.tokenInfo.refreshToken}`,
+      },
+    });
+    return {
+      status: 'success',
+      data: response.data,
+      message: response.data.message as string,
+    } as Status;
+  } catch (error) {
+    console.log(error);
     if (isAxiosError(error)) {
       return {
         status: 'error',

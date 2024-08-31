@@ -5,7 +5,6 @@ import {
   FAQs,
 } from '@/components/Assests';
 import CustomAccordion from '@components/CustomAccordian';
-import Footer from '@components/Footer';
 import StepInstruction from '@components/StepInstruction';
 import InfiniteScroll from '@components/infiniteScroll/InfiniteScroll';
 import PricingSection from '@components/pricing/PricingSection';

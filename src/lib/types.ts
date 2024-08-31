@@ -55,19 +55,19 @@ export type Status = {
 
 export type SignUpInputs = z.infer<typeof signUpSchema>;
 export type LoginInputs = z.infer<typeof loginSchema>;
-export type AccoutSetupFormInputs = z.infer<typeof accountSetupSchema>;
+export type AccountSetupFormInputs = z.infer<typeof accountSetupSchema>;
 
 export type LoginResponse = {
   user: {
     id: number;
-    email: 'string';
+    email: string;
     bio: object;
-    firstName: 'string';
-    lastName: 'string';
-    subscriptionPlan: 'string';
+    firstName: string;
+    lastName: string;
+    subscriptionPlan: string;
     role: 'string';
     createdAt: string;
-    updatedat: string;
+    updatedAt: string;
   };
   tokenInfo: {
     accessToken: string;

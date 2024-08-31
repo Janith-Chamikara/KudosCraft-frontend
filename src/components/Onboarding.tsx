@@ -16,6 +16,8 @@ import { AccountSetupFormInputs } from '@/lib/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { accountSetupSchema } from '@/schemas/schema';
 import FormField from './FormField';
+import { setupAccountDetails } from '@/lib/actions';
+import toast from 'react-hot-toast';
 
 interface StepProps {
   register: UseFormRegister<AccountSetupFormInputs>;
@@ -43,7 +45,6 @@ const steps: Step[] = [
           let's determine how you'll be using Kudos Craft.
         </p>
         <RadioGroup
-          defaultValue="personal"
           onValueChange={(value) => {
             console.log(value);
             setAccountType(value as 'personal' | 'company');
@@ -68,20 +69,16 @@ const steps: Step[] = [
     description: 'This helps us tailor your experience.',
     content: ({ onNext, onPrevious, accountType, register, setValue }) => (
       <div className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="name">
-            {accountType === 'personal' ? 'Your Name' : 'Company Name'}
-          </Label>
-          <FormField
-            register={register}
-            name={accountType === 'personal' ? 'personalName' : 'companyName'}
-            placeholder={
-              accountType === 'personal'
-                ? 'Enter your name'
-                : 'Enter your company name'
-            }
-          />
-        </div>
+        {accountType === 'company' && (
+          <div className="space-y-2">
+            <Label htmlFor="name">Company Name</Label>
+            <FormField
+              register={register}
+              name={'companyName'}
+              placeholder={'Enter your company name'}
+            />
+          </div>
+        )}
         <div className="space-y-2">
           <Label htmlFor="field">
             {accountType === 'personal' ? 'Field of Expertise' : 'Industry'}
@@ -184,7 +181,19 @@ export default function OnboardingFlow(): JSX.Element {
   );
 
   const onSubmit = async (data: AccountSetupFormInputs) => {
-    console.log(data);
+    const response = await setupAccountDetails(data);
+    if (response) {
+      if (response.status === 'success') {
+        toast.success(response.message);
+        if (currentStep < steps.length - 1) {
+          setCurrentStep((prev) => prev + 1);
+        } else {
+          setIsCompleted(true);
+        }
+      } else {
+        toast.error(response.message);
+      }
+    }
   };
 
   useEffect(() => {
@@ -221,7 +230,10 @@ export default function OnboardingFlow(): JSX.Element {
   } = useForm<AccountSetupFormInputs>({
     resolver: zodResolver(accountSetupSchema),
   });
-  console.log(errors);
+
+  useEffect(() => {
+    setValue('usage', 'personal');
+  }, [setValue]);
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">

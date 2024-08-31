@@ -4,14 +4,14 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: number;
-      email: 'string';
+      email: string;
       bio: object;
-      firstName: 'string';
-      lastName: 'string';
-      subscriptionPlan: 'string';
-      role: 'string';
+      firstName: string;
+      lastName: string;
+      subscriptionPlan: string;
+      role: string;
       createdAt: string;
-      updatedat: string;
+      updatedAt: string;
     };
     tokenInfo: {
       accessToken: string;
@@ -28,14 +28,14 @@ declare module 'next-auth/jwt' {
   interface JWT {
     user: {
       id: number;
-      email: 'string';
+      email: string;
       bio: object;
-      firstName: 'string';
-      lastName: 'string';
-      subscriptionPlan: 'string';
-      role: 'string';
+      firstName: string;
+      lastName: string;
+      subscriptionPlan: string;
+      role: string;
       createdAt: string;
-      updatedat: string;
+      updatedAt: string;
     };
     tokenInfo: {
       accessToken: string;
