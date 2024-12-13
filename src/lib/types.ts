@@ -65,7 +65,8 @@ export type LoginResponse = {
     firstName: string;
     lastName: string;
     subscriptionPlan: string;
-    role: 'string';
+    role: string;
+    isInitialSetupCompleted: boolean;
     createdAt: string;
     updatedAt: string;
   };
