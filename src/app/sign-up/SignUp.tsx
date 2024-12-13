@@ -11,11 +11,12 @@ import { signUpAction } from '@/lib/actions';
 import toast from 'react-hot-toast';
 import SubmitButton from '@/components/submit-button';
 import { SignUpInputs } from '@/lib/types';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 export default function SignUp() {
   const router = useRouter();
+  const { data: session } = useSession();
   const {
     register,
     formState: { errors, isSubmitting },
@@ -34,7 +35,11 @@ export default function SignUp() {
           email: data.email,
           password: data.password,
         });
-        router.push('/account-setup');
+        if (session?.user.isInitialSetupCompleted) {
+          router.push('/dashboard');
+        } else {
+          router.push('/account-setup');
+        }
       } else {
         toast.error(response.message);
       }

@@ -9,6 +9,7 @@ declare module 'next-auth' {
       firstName: string;
       lastName: string;
       subscriptionPlan: string;
+      isInitialSetupCompleted: boolean;
       role: string;
       createdAt: string;
       updatedAt: string;
@@ -34,6 +35,7 @@ declare module 'next-auth/jwt' {
       lastName: string;
       subscriptionPlan: string;
       role: string;
+      isInitialSetupCompleted: boolean;
       createdAt: string;
       updatedAt: string;
     };

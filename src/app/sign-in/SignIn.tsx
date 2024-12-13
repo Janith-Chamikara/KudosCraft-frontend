@@ -7,10 +7,9 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { Icons } from '@/components/ui/icons';
 import FormField from '@/components/FormField';
 import { loginSchema } from '@/schemas/schema';
-import { loginAction } from '@/lib/actions';
 import SubmitButton from '@/components/submit-button';
 import toast from 'react-hot-toast';
-import { getSession, signIn, useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
@@ -21,6 +20,7 @@ export default function SignIn() {
   } = useForm({
     resolver: zodResolver(loginSchema), // Apply the zodResolver
   });
+  const { data: session } = useSession();
   const router = useRouter();
   const onSubmit = async (data: FieldValues) => {
     const result = await signIn('credentials', {
@@ -33,7 +33,11 @@ export default function SignIn() {
       return;
     } else if (result?.ok) {
       toast.success('Login successful');
-      router.push('/account-setup');
+      if (session?.user.isInitialSetupCompleted) {
+        router.push('/dashboard');
+      } else {
+        router.push('/account-setup');
+      }
     }
   };
   return (

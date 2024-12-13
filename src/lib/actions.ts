@@ -94,6 +94,7 @@ export const signUpAction = async (data: FieldValues) => {
       message: response.data.message as string,
     } as Status;
   } catch (error) {
+    console.log(error);
     if (isAxiosError(error)) {
       return {
         status: 'error',
